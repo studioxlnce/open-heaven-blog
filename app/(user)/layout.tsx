@@ -13,13 +13,14 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  console.log("🚀: Hola");
   return (
     <html lang="en" className="text-black">
       <body className={inter.className}>
         <Header />
-        <h2>Huh?</h2>
+        {/* <h2 className="text-white text-2xl font-semibold">Huh?</h2> */}
         <Banner />
         {children}
       </body>

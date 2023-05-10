@@ -1,14 +1,20 @@
-'use client';
+"use client";
 
-import {definePreview} from "next-sanity/preview";
-import {projectId, dataset} from "./sanity.client";
+import { definePreview } from "next-sanity/preview";
+import { projectId, dataset } from "./sanity.client";
 
-// function onPublicAccessOnly() {
-//   throw new Error(`Unable to load preview as you're not logged in`);
-// };
-
-if (!projectId || !dataset) {
-    throw new Error(`Missing projectId or dataset. Please ensure you've set them in your .env file.`);
+function onPublicAccessOnly() {
+  throw new Error(`Unable to load preview as you're not logged in`);
 };
 
-export const usePreview = definePreview({projectId, dataset /** , onPublicAccessOnly */});
+console.log("🤔: Hola from sanity.preview.ts");
+
+
+if (!projectId || !dataset) {
+    console.log("🤐: sanity.preview.ts says \"Go Away!\"");
+    throw new Error(`Missing projectId or dataset. Please ensure you've set them in your .env file.`);
+} else {
+    console.log("👾: sanity.preview.ts says \"Wateva!\"");
+};
+
+export const usePreview = definePreview({projectId, dataset, onPublicAccessOnly,});
