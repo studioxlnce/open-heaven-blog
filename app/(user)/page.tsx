@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { previewData } from "next/headers";
+import Image from "next/image";
 import { groq } from "next-sanity";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
@@ -16,26 +16,28 @@ const query = groq`
 `;
 
 export default async function Home() {
-  console.log("HOW!!!!?!?!?!?!!!!!!!!!!!!!!!!!????????");
   if (previewData()) {
-    console.log("😙: Hola")
+    console.log("😙: Hola");
+    console.log("previewData: ✅");
+    console.log(`😑: ${previewData()} || ${previewData() ? true : false}`);
     return (
-      <div> Preview Mode </div>
-      // <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      //   <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-      //     <h2 className="mb-3 text-2xl font-semibold">¡Hola Mundo!</h2>
-      //   </div>
-      // </main>
+      // <div> Preview Mode </div>
+      <main className="flex w-100v h-100v flex-col items-center justify-center">
+        <div className="z-10 w-100v h-100v items-center justify-center">
+          <h2 className="mb-3 text-2xl text-white font-semibold">¡Hola Mundo!</h2>
+        </div>
+      </main>
     );
   } else {
-    console.log("WHY?!?HOW!!!!?!?!?!?!!!!!!!!!!!!!!!!!????????");
   };
+
+  console.log("😡: Hola");
+  console.log("!previewData: ❌");
   console.log(`😑: ${previewData()} || ${previewData() ? true : false}`);
 
-  console.log("😡😡😡: ¡¿Qué es tu problema?!");
-
   const posts = await sanityClient.fetch(query);
-  console.log("😡: Hola");
+  console.log(posts);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -95,7 +97,7 @@ export default async function Home() {
               </span>
             </h2>
             <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
+              Learn about Next.js in an interactive course with quizzes!
             </p>
           </a>
 

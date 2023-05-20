@@ -11,6 +11,21 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'office',
+      title: 'Office',
+      type: 'string',
+    }),
+    defineField({
+      name: 'church',
+      title: 'Church',
+      type: 'string',
+    }),
+    defineField({
+      name: 'zone',
+      title: 'Zone',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

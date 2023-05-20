@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 import { definePreview } from "next-sanity/preview";
 import { projectId, dataset } from "./sanity.client";
 
 function onPublicAccessOnly() {
-  throw new Error(`Unable to load preview as you're not logged in`);
+  throw new Error(`Please log in to load preview data`);
 };
 
 console.log("🤔: Hola from sanity.preview.ts");
